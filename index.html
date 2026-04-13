@@ -1,0 +1,45 @@
+<!-- web.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bình is gay</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id='box'>
+        <h1 id='text'>Bình Gay</h1>
+    </div>
+
+<script>
+const text = document.getElementById("text");
+const content = text.innerText;
+text.innerHTML = "";
+
+for (let char of content) {
+  let span = document.createElement("span");
+  span.innerText = char;
+  text.appendChild(span);
+}
+
+text.addEventListener("mouseenter", () => {
+  document.querySelectorAll("#text span").forEach(span => {
+    let x = (Math.random() - 0.5) * 300;
+    let y = (Math.random() - 0.5) * 300;
+
+    span.style.transform = `translate(${x}px, ${y}px) rotate(720deg)`;
+  });
+});
+
+text.addEventListener("mouseleave", () => {
+  document.querySelectorAll("#text span").forEach(span => {
+    span.style.transform = "translate(0,0) rotate(0)";
+    span.style.opacity = 1;
+  });
+});
+</script>
+</body>
+</html>
+
+
